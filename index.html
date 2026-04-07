@@ -377,8 +377,10 @@ footer{background:var(--gray-900);color:#fff;padding:56px 48px 32px;}
   border-top:1px solid rgba(255,255,255,0.08);
   font-size:13px;
 }
-.cookie-btn{padding:7px 18px;border-radius:8px;border:none;font-size:13px;font-weight:700;cursor:pointer;}
+.cookie-btn{padding:7px 18px;border-radius:8px;border:none;font-size:13px;font-weight:700;cursor:pointer;transition:all .2s;}
 .cookie-accept{background:var(--indigo);color:#fff;}
+.cookie-reject{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.35);}
+.cookie-reject:hover{background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.6);}
 .cookie a{color:rgba(99,102,241,0.9);text-decoration:none;}
 
 /* --- EDIT MODE --- */
@@ -613,7 +615,7 @@ footer{background:var(--gray-900);color:#fff;padding:56px 48px 32px;}
       <div class="pay-steps">
         <div class="pay-step"><div class="pay-step-num">1</div><p>Scan the QR code with any UPI app (GPay, PhonePe, Paytm, etc.)</p></div>
         <div class="pay-step"><div class="pay-step-num">2</div><p>Enter the agreed audit fee amount and add your company name in remarks</p></div>
-        <div class="pay-step"><div class="pay-step-num">3</div><p>Email your payment screenshot to <strong>billing@darkpatternsolution.in</strong></p></div>
+        <div class="pay-step"><div class="pay-step-num">3</div><p>Email your payment screenshot to <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="35575c59595c5b52755154475e4554414150475b465a5940415c5a5b1b5c5b">[email&#160;protected]</a></strong></p></div>
         <div class="pay-step"><div class="pay-step-num">4</div><p>We confirm within 2 hours and begin your audit immediately</p></div>
       </div>
     </div>
@@ -647,7 +649,7 @@ footer{background:var(--gray-900);color:#fff;padding:56px 48px 32px;}
         <div class="comp-row"><span class="comp-name">GDPR (global platforms)</span><span class="comp-badge">Covered</span></div>
         <div class="comp-row"><span class="comp-name">RBI Digital Guidelines</span><span class="comp-badge">Covered</span></div>
         <div class="case-pill">
-          <div class="case-tag">? Real World Case #001</div>
+          <div class="case-tag">&#x1F50D; Real World Case #001</div>
           <p>Truecaller privacy &amp; dark pattern finding — independently discovered, responsibly disclosed, pending government escalation.</p>
         </div>
       </div>
@@ -678,9 +680,9 @@ footer{background:var(--gray-900);color:#fff;padding:56px 48px 32px;}
     <button class="ltab" onclick="showLegal('disclosure')">Responsible Disclosure</button>
   </div>
   <div class="legal-box active" id="leg-privacy">
-    <h2>Privacy Policy</h2><div class="legal-meta">Last Updated: April 5, 2026 | v1.0 | DPDP Act 2023 — GDPR — CCPA Compliant</div>
-    <div class="legal-hl">Plain Language: We collect only what we need, never sell your data, never use dark patterns in our consent flows, and respond to all data rights requests within 30 days.</div>
-    <h3>1. Who We Are</h3><p>Dark Pattern Solutions ("DPS") is a digital compliance and UX audit company in India operating at darkpatternsolution.in. Contact: <a href="mailto:privacy@darkpatternsolution.in" style="color:var(--indigo);">privacy@darkpatternsolution.in</a></p>
+    <h2>Privacy Policy</h2><div class="legal-meta">Last Updated: April 8, 2026 | v1.1 | DPDP Act 2023 — GDPR — CCPA Compliant</div>
+    <div class="legal-hl">Plain Language: We collect only what we need, never sell your data, use equal Accept + Reject cookie consent (no dark patterns in our own site)</div>
+    <h3>1. Who We Are</h3><p>Dark Pattern Solutions ("DPS") is a digital compliance and UX audit company in India operating at darkpatternsolution.in. Contact: <a href="/cdn-cgi/l/email-protection#fe8e8c97889f9d87be9a9f8c958e9f8a8a9b8c908d91928b8a979190d09790" style="color:var(--indigo);"><span class="__cf_email__" data-cfemail="f080829986919389b09491829b8091848495829e839f9c8584999f9ede999e">[email&#160;protected]</span></a></p>
     <h3>2. Data We Collect</h3><p>Name, email, phone, company name, platform URL (audit requests), and anonymised analytics. We do NOT collect: government ID, financial credentials, biometric data, or children's data.</p>
     <h3>3. How We Use Your Data</h3><p>To respond to audit inquiries, deliver services, send service communications, improve our website, comply with legal obligations. We never use your data for profiling, targeted advertising, or sell it to third parties.</p>
     <h3>4. Your Rights (DPDP Act 2023 &amp; GDPR)</h3>
@@ -688,9 +690,10 @@ footer{background:var(--gray-900);color:#fff;padding:56px 48px 32px;}
     <h3>5. Country-Specific Rights</h3>
     <ul><li><strong>India:</strong> DPDP Act 2023 — <a href="https://meity.gov.in" style="color:var(--indigo);" target="_blank">meity.gov.in</a></li><li><strong>EU/EEA:</strong> GDPR — <a href="https://edpb.europa.eu" style="color:var(--indigo);" target="_blank">edpb.europa.eu</a></li><li><strong>UK:</strong> ICO — <a href="https://ico.org.uk" style="color:var(--indigo);" target="_blank">ico.org.uk</a></li><li><strong>California:</strong> CCPA — <a href="https://oag.ca.gov/privacy/ccpa" style="color:var(--indigo);" target="_blank">oag.ca.gov</a></li><li><strong>Singapore:</strong> PDPA — <a href="https://pdpc.gov.sg" style="color:var(--indigo);" target="_blank">pdpc.gov.sg</a></li></ul>
     <h3>6. Data Security</h3><p>All data encrypted in transit (TLS 1.2+) and at rest (AES-256). Breach notification within 72 hours to the Data Protection Board of India as required by DPDP Rules 2025.</p>
+    <h3>7. Cookie Policy</h3><p>We use only <strong>essential cookies</strong> strictly necessary for the website to function. We do NOT use tracking, analytics, advertising, or third-party cookies. Our cookie consent banner provides equal-prominence <strong>Accept</strong> and <strong>Reject</strong> buttons in compliance with GDPR Article 7, DPDP Act 2023, and DSA Article 25. Your choice is saved locally in your browser. We do not set any cookies before you make a choice. To withdraw consent, clear your browser storage or contact <a href="/cdn-cgi/l/email-protection#6515170c1304061c250104170e1504111100170b160a0910110c0a0b4b0c0b" style="color:var(--indigo);"><span class="__cf_email__" data-cfemail="0676746f7067657f466267746d7667727263746875696a73726f6968286f68">[email&#160;protected]</span></a>.</p>
   </div>
   <div class="legal-box" id="leg-terms">
-    <h2>Terms of Service</h2><div class="legal-meta">Last Updated: April 5, 2026 | v1.0 | Governed by Indian Law</div>
+    <h2>Terms of Service</h2><div class="legal-meta">Last Updated: April 8, 2026 | v1.1 | Governed by Indian Law</div>
     <div class="legal-hl">By using our services you agree to these Terms. If accepting on behalf of a company, you confirm you have authority to bind that entity.</div>
     <h3>1. Services</h3><p>Dark Pattern Solutions provides AI-powered dark pattern detection, compliance audit reports, remediation consulting, monitoring, and CCPA declaration support. Our reports are advisory — they do not constitute legal advice.</p>
     <h3>2. Client Obligations</h3><ul><li>You must own or be authorised to submit any platform for audit</li><li>You may NOT submit third-party sites without their explicit written consent</li><li>Provide accurate information in all forms and communications</li><li>Use audit reports only for lawful compliance purposes</li></ul>
@@ -700,12 +703,12 @@ footer{background:var(--gray-900);color:#fff;padding:56px 48px 32px;}
     <h3>6. Governing Law</h3><p>These Terms are governed by the laws of India including the Consumer Protection Act 2019 and Information Technology Act 2000. Disputes resolved first by negotiation (30 days), then mediation under India's Mediation Act 2023, then binding arbitration.</p>
   </div>
   <div class="legal-box" id="leg-disclosure">
-    <h2>Responsible Disclosure Policy</h2><div class="legal-meta">Last Updated: April 5, 2026 | v1.0 | Aligned with ISO 29147 — OWASP — CERT-In — NCSC UK</div>
+    <h2>Responsible Disclosure Policy</h2><div class="legal-meta">Last Updated: April 8, 2026 | v1.1 | Aligned with ISO 29147 — OWASP — CERT-In — NCSC UK</div>
     <div class="legal-hl">We welcome good-faith security research. We will not pursue legal action against researchers who comply with this policy.</div>
     <h3>1. Scope</h3><ul><li>Security vulnerabilities on darkpatternsolution.in</li><li>Privacy issues or data leaks on our website</li><li>Dark patterns on our own website (we take this seriously)</li><li>Dark patterns you've discovered in any Indian digital platform</li></ul>
-    <h3>2. Our Platform Self-Commitment</h3><ul><li>✅ No pre-ticked checkboxes on our forms</li><li>✅ No fake urgency or false scarcity messaging</li><li>✅ All pricing transparent + GST stated clearly</li><li>✅ Cookie consent explicit — no pre-accepted non-essential cookies</li><li>✅ Quarterly self-audit of our own website</li></ul>
+    <h3>2. Our Platform Self-Commitment</h3><ul><li>✅ No pre-ticked checkboxes on our forms</li><li>✅ No fake urgency or false scarcity messaging</li><li>✅ All pricing transparent + GST stated clearly</li><li>✅ Cookie consent with Accept + Reject buttons, equal prominence — no pre-accepted non-essential cookies</li><li>✅ Quarterly self-audit of our own website</li></ul>
     <h3>3. Response Timeline</h3><ul><li>Acknowledgement within 3 business days</li><li>Critical issues resolved within 30 days</li><li>Dark patterns on our site fixed within 14 days</li><li>Public disclosure after fix, or after 90 days if unresolved</li></ul>
-    <h3>4. How to Report</h3><p>Security: <a href="mailto:security@darkpatternsolution.in" style="color:var(--indigo);">security@darkpatternsolution.in</a><br/>Dark patterns (third-party): <a href="mailto:disclose@darkpatternsolution.in" style="color:var(--indigo);">disclose@darkpatternsolution.in</a></p>
+    <h3>4. How to Report</h3><p>Security: <a href="/cdn-cgi/l/email-protection#ec9f898f999e859895ac888d9e879c8d9898899e829f83809998858382c28582" style="color:var(--indigo);"><span class="__cf_email__" data-cfemail="7704121402051e030e371316051c0716030312051904181b02031e1819591e19">[email&#160;protected]</span></a><br/>Dark patterns (third-party): <a href="/cdn-cgi/l/email-protection#b0d4d9c3d3dcdfc3d5f0d4d1c2dbc0d1c4c4d5c2dec3dfdcc5c4d9dfde9ed9de" style="color:var(--indigo);"><span class="__cf_email__" data-cfemail="04606d7767686b7761446065766f7465707061766a776b6871706d6b6a2a6d6a">[email&#160;protected]</span></a></p>
   </div>
 </div></section>
 
@@ -718,8 +721,8 @@ footer{background:var(--gray-900);color:#fff;padding:56px 48px 32px;}
         <div class="footer-desc">India's AI-powered dark pattern audit platform — making India's digital ecosystem fair, transparent, and compliant.</div>
       </div>
       <div class="footer-col"><h4>Services</h4><ul><li><a href="#services">AI Audit Scan</a></li><li><a href="#services">Compliance Report</a></li><li><a href="#services">Remediation</a></li><li><a href="#services">Monitoring</a></li><li><a href="#services">CCPA Declaration</a></li></ul></div>
-      <div class="footer-col"><h4>Legal</h4><ul><li><a href="#legal" onclick="showLegal('privacy')">Privacy Policy</a></li><li><a href="#legal" onclick="showLegal('terms')">Terms of Service</a></li><li><a href="#legal" onclick="showLegal('disclosure')">Responsible Disclosure</a></li><li><a href="mailto:legal@darkpatternsolution.in">Legal Contact</a></li></ul></div>
-      <div class="footer-col"><h4>Contact</h4><ul><li><a href="mailto:dp@darkpatternsolution.in">dp@darkpatternsolution.in</a></li><li><a href="mailto:security@darkpatternsolution.in">security@</a></li><li><a href="mailto:privacy@darkpatternsolution.in">privacy@</a></li><li><a href="mailto:billing@darkpatternsolution.in">billing@</a></li></ul></div>
+      <div class="footer-col"><h4>Legal</h4><ul><li><a href="#legal" onclick="showLegal('privacy')">Privacy Policy</a></li><li><a href="#legal" onclick="showLegal('terms')">Terms of Service</a></li><li><a href="#legal" onclick="showLegal('disclosure')">Responsible Disclosure</a></li><li><a href="/cdn-cgi/l/email-protection#09656c6e6865496d687b6279687d7d6c7b677a66657c7d606667276067">Legal Contact</a></li></ul></div>
+      <div class="footer-col"><h4>Contact</h4><ul><li><a href="/cdn-cgi/l/email-protection#670317270306150c1706131302150914080b12130e0809490e09"><span class="__cf_email__" data-cfemail="4c283c0c282d3e273c2d3838293e223f23203938252322622522">[email&#160;protected]</span></a></li><li><a href="/cdn-cgi/l/email-protection#b6c5d3d5c3c4dfc2cff6d2d7c4ddc6d7c2c2d3c4d8c5d9dac3c2dfd9d898dfd8">security@</a></li><li><a href="/cdn-cgi/l/email-protection#f080829986919389b09491829b8091848495829e839f9c8584999f9ede999e">privacy@</a></li><li><a href="/cdn-cgi/l/email-protection#8ae8e3e6e6e3e4edcaeeebf8e1faebfefeeff8e4f9e5e6fffee3e5e4a4e3e4">billing@</a></li></ul></div>
     </div>
     <div class="footer-bottom">
       <p>— 2026 Dark Pattern Solutions. All rights reserved.</p>
@@ -731,24 +734,25 @@ footer{background:var(--gray-900);color:#fff;padding:56px 48px 32px;}
 
 <!-- COOKIE BANNER -->
 <div class="cookie" id="cookieBanner">
-  <span>We use essential cookies only — no tracking, no marketing cookies. <a href="#legal" onclick="showLegal('privacy')">Privacy Policy</a></span>
-  <div style="display:flex;gap:10px;">
-    <button class="cookie-btn cookie-accept" onclick="document.getElementById('cookieBanner').style.display='none'">Accept Essential Only</button>
+  <span>We use essential cookies only &mdash; no tracking, no marketing cookies. <a href="#legal" onclick="showLegal('privacy')">Privacy Policy</a></span>
+  <div style="display:flex;gap:10px;align-items:center;">
+    <button class="cookie-btn cookie-reject" onclick="cookieChoice('reject')">Reject Non-Essential</button>
+    <button class="cookie-btn cookie-accept" onclick="cookieChoice('accept')">Accept Essential Only</button>
   </div>
 </div>
 
 <!-- EDIT MODE -->
 <div class="edit-bar" id="editBar">
-  <span>?? Edit Mode — Click any text to edit it directly</span>
+  <span>&#x270F;&#xFE0F; Edit Mode — Click any text to edit it directly</span>
   <div style="display:flex;gap:8px;">
-    <button class="ebar-btn ebar-dl" onclick="downloadPage()">? Download</button>
-    <button class="ebar-btn ebar-done" onclick="saveEdits()">? Done</button>
-    <button class="ebar-btn ebar-cancel" onclick="cancelEdits()">? Cancel</button>
+    <button class="ebar-btn ebar-dl" onclick="downloadPage()">&#x2B07; Download</button>
+    <button class="ebar-btn ebar-done" onclick="saveEdits()">&#x2714; Done</button>
+    <button class="ebar-btn ebar-cancel" onclick="cancelEdits()">&#x2715; Cancel</button>
   </div>
 </div>
 <div class="edit-panel" id="editPanel">
   <div class="ep-title">Edit Options</div>
-  <button class="ep-btn" onclick="downloadPage()">? Download Page</button>
+  <button class="ep-btn" onclick="downloadPage()">&#x2B07; Download Page</button>
   <div style="font-size:10px;color:#9aa3b8;font-weight:700;letter-spacing:1px;margin-top:6px;">ACCENT COLOR</div>
   <div class="color-row">
     <div class="cswatch" style="background:#4338ca" onclick="setColor('#4338ca','#6366f1','#312e81')" title="Indigo"></div>
@@ -760,7 +764,7 @@ footer{background:var(--gray-900);color:#fff;padding:56px 48px 32px;}
 </div>
 <button class="edit-fab" id="editFab" onclick="toggleEdit()" title="Toggle Edit Mode">&#x270F;&#xFE0F;</button>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // Legal tabs
 function showLegal(tab) {
   document.querySelectorAll('.ltab').forEach(t => t.classList.remove('active'));
@@ -855,13 +859,13 @@ function toggleEdit() {
   const bar = document.getElementById('editBar');
   const panel = document.getElementById('editPanel');
   if(editMode) {
-    fab.textContent = '?';
+    fab.textContent = '✖';
     fab.style.background = '#dc2626';
     bar.classList.add('show');
     panel.classList.add('show');
     enableEdit();
   } else {
-    fab.textContent = '??';
+    fab.textContent = '✏️';
     fab.style.background = '#4338ca';
     bar.classList.remove('show');
     panel.classList.remove('show');
@@ -908,6 +912,19 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     if(t) { e.preventDefault(); t.scrollIntoView({behavior:'smooth'}); }
   });
 });
+
+// Cookie consent with Reject option (GDPR/DPDP compliant)
+function cookieChoice(choice) {
+  localStorage.setItem('dp_cookie_choice', choice);
+  document.getElementById('cookieBanner').style.display = 'none';
+}
+// Hide banner if already chosen
+(function() {
+  if (localStorage.getItem('dp_cookie_choice')) {
+    var banner = document.getElementById('cookieBanner');
+    if (banner) banner.style.display = 'none';
+  }
+})();
 </script>
 </body>
 </html>
