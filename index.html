@@ -383,25 +383,7 @@ footer{background:var(--gray-900);color:#fff;padding:56px 48px 32px;}
 .cookie-reject:hover{background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.6);}
 .cookie a{color:rgba(99,102,241,0.9);text-decoration:none;}
 
-/* --- EDIT MODE --- */
-.edit-fab{position:fixed;bottom:90px;right:20px;z-index:700;width:50px;height:50px;border-radius:50%;background:var(--indigo);color:#fff;border:none;font-size:18px;cursor:pointer;box-shadow:0 4px 20px rgba(99,102,241,0.45);display:flex;align-items:center;justify-content:center;transition:all .2s;}
-.edit-fab:hover{transform:scale(1.08);}
-.edit-bar{position:fixed;top:0;left:0;right:0;z-index:900;background:var(--indigo);color:#fff;padding:10px 24px;display:none;align-items:center;justify-content:space-between;font-size:14px;font-weight:600;}
-.edit-bar.show{display:flex;}
-.ebar-btn{padding:6px 16px;border-radius:7px;border:none;cursor:pointer;font-size:12px;font-weight:700;}
-.ebar-dl{background:#fff;color:var(--indigo);}
-.ebar-done{background:rgba(255,255,255,0.2);color:#fff;}
-.ebar-cancel{background:rgba(255,255,255,0.1);color:#fff;}
-.edit-panel{position:fixed;right:16px;top:80px;z-index:700;background:var(--white);border:1px solid var(--border);border-radius:14px;padding:16px;box-shadow:var(--shadow-lg);display:none;flex-direction:column;gap:10px;width:180px;}
-.edit-panel.show{display:flex;}
-.ep-title{font-size:10px;font-weight:800;letter-spacing:2px;color:var(--indigo);text-transform:uppercase;margin-bottom:4px;}
-.ep-btn{padding:8px 12px;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;border:1px solid var(--gray-200);background:var(--gray-50);color:var(--gray-700);text-align:left;transition:all .15s;}
-.ep-btn:hover{background:var(--indigo-glow);border-color:var(--indigo);color:var(--indigo);}
-.color-row{display:flex;gap:6px;flex-wrap:wrap;}
-.cswatch{width:26px;height:26px;border-radius:50%;cursor:pointer;border:2px solid rgba(255,255,255,0.8);box-shadow:0 2px 6px rgba(0,0,0,0.15);transition:transform .15s;}
-.cswatch:hover{transform:scale(1.15);}
-[contenteditable]{outline:2px dashed rgba(99,102,241,0.5);outline-offset:3px;border-radius:3px;cursor:text;min-width:10px;}
-[contenteditable]:focus{outline:2px solid var(--indigo);background:rgba(99,102,241,0.03);}
+
 
 /* --- RESPONSIVE --- */
 @media(max-width:900px){
@@ -740,30 +722,6 @@ footer{background:var(--gray-900);color:#fff;padding:56px 48px 32px;}
     <button class="cookie-btn cookie-accept" onclick="cookieChoice('accept')">Accept Essential Only</button>
   </div>
 </div>
-
-<!-- EDIT MODE -->
-<div class="edit-bar" id="editBar">
-  <span>&#x270F;&#xFE0F; Edit Mode — Click any text to edit it directly</span>
-  <div style="display:flex;gap:8px;">
-    <button class="ebar-btn ebar-dl" onclick="downloadPage()">&#x2B07; Download</button>
-    <button class="ebar-btn ebar-done" onclick="saveEdits()">&#x2714; Done</button>
-    <button class="ebar-btn ebar-cancel" onclick="cancelEdits()">&#x2715; Cancel</button>
-  </div>
-</div>
-<div class="edit-panel" id="editPanel">
-  <div class="ep-title">Edit Options</div>
-  <button class="ep-btn" onclick="downloadPage()">&#x2B07; Download Page</button>
-  <div style="font-size:10px;color:#9aa3b8;font-weight:700;letter-spacing:1px;margin-top:6px;">ACCENT COLOR</div>
-  <div class="color-row">
-    <div class="cswatch" style="background:#4338ca" onclick="setColor('#4338ca','#6366f1','#312e81')" title="Indigo"></div>
-    <div class="cswatch" style="background:#0891b2" onclick="setColor('#0891b2','#22d3ee','#164e63')" title="Cyan"></div>
-    <div class="cswatch" style="background:#059669" onclick="setColor('#059669','#34d399','#065f46')" title="Green"></div>
-    <div class="cswatch" style="background:#7c3aed" onclick="setColor('#7c3aed','#a78bfa','#4c1d95')" title="Purple"></div>
-    <div class="cswatch" style="background:#dc2626" onclick="setColor('#dc2626','#f87171','#7f1d1d')" title="Red"></div>
-  </div>
-</div>
-<button class="edit-fab" id="editFab" onclick="toggleEdit()" title="Toggle Edit Mode">&#x270F;&#xFE0F;</button>
-
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // Legal tabs
 function showLegal(tab) {
@@ -851,80 +809,20 @@ window.addEventListener('scroll', () => {
   document.querySelector('nav').style.boxShadow = window.scrollY > 40 ? '0 2px 20px rgba(15,18,37,0.08)' : 'none';
 });
 
-// EDIT MODE
-let editMode = false;
-function toggleEdit() {
-  editMode = !editMode;
-  const fab = document.getElementById('editFab');
-  const bar = document.getElementById('editBar');
-  const panel = document.getElementById('editPanel');
-  if(editMode) {
-    fab.textContent = '✖';
-    fab.style.background = '#dc2626';
-    bar.classList.add('show');
-    panel.classList.add('show');
-    enableEdit();
-  } else {
-    fab.textContent = '✏️';
-    fab.style.background = '#4338ca';
-    bar.classList.remove('show');
-    panel.classList.remove('show');
-    disableEdit();
-  }
-}
-function enableEdit() {
-  document.querySelectorAll('h1,h2,h3,h4,p,span.tag,span.svc-pill,span.qr-title,span.qr-upi,.pc-name,.pc-desc,.stat-item .val,.hero-sub,.pay-step p').forEach(el => {
-    if(!el.closest('script') && !el.closest('.edit-bar') && !el.closest('.edit-panel') && !el.closest('.cookie') && !el.closest('footer')) {
-      el.setAttribute('contenteditable','true');
-      el.dataset.orig = el.innerHTML;
-    }
-  });
-}
-function disableEdit() {
-  document.querySelectorAll('[contenteditable]').forEach(el => el.removeAttribute('contenteditable'));
-}
-function saveEdits() { toggleEdit(); }
-function cancelEdits() {
-  document.querySelectorAll('[contenteditable]').forEach(el => {
-    if(el.dataset.orig) el.innerHTML = el.dataset.orig;
-  });
-  toggleEdit();
-}
-function downloadPage() {
-  disableEdit();
-  const html = '<!DOCTYPE html>' + document.documentElement.outerHTML;
-  const blob = new Blob([html],{type:'text/html'});
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = 'darkpatternsolution_final.html';
-  a.click();
-}
-function setColor(dark, light, darker) {
-  document.documentElement.style.setProperty('--indigo', dark);
-  document.documentElement.style.setProperty('--indigo-light', light);
-  document.documentElement.style.setProperty('--indigo-dark', darker);
-}
 
-// Smooth scroll for all anchor links
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const t = document.querySelector(a.getAttribute('href'));
-    if(t) { e.preventDefault(); t.scrollIntoView({behavior:'smooth'}); }
-  });
-});
 
-// Cookie consent with Reject option (GDPR/DPDP compliant)
+// Cookie consent (GDPR/DPDP compliant — Accept + Reject)
 function cookieChoice(choice) {
   localStorage.setItem('dp_cookie_choice', choice);
   document.getElementById('cookieBanner').style.display = 'none';
 }
-// Hide banner if already chosen
 (function() {
   if (localStorage.getItem('dp_cookie_choice')) {
-    var banner = document.getElementById('cookieBanner');
-    if (banner) banner.style.display = 'none';
+    var b = document.getElementById('cookieBanner');
+    if (b) b.style.display = 'none';
   }
 })();
+
 </script>
 </body>
 </html>
