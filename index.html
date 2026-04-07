@@ -660,10 +660,10 @@ footer{background:var(--gray-900);color:#fff;padding:56px 48px 32px;}
   <div class="sh"><span class="tag">Get In Touch</span><h2>Request Your <span>Free Audit</span></h2><div class="bar"></div><p>Submit your URL. We send a sample finding within 24 hours &mdash; completely free.</p></div>
   <div class="contact-inner">
     <form class="contact-form" onsubmit="formSubmit(event)">
-      <div class="frow"><input class="finput" type="text" placeholder="Your Name *" required/><input class="finput" type="email" placeholder="Work Email *" required/></div>
-      <div class="frow"><input class="finput" type="text" placeholder="Company Name *" required/><input class="finput" type="tel" placeholder="Phone Number"/></div>
-      <input class="finput" type="text" placeholder="Platform URL (e.g. yoursite.com or https://yoursite.com) *" required/>
-      <textarea class="ftextarea" placeholder="Tell us about your platform &mdash; type, monthly users, specific concerns..."></textarea>
+      <div class="frow"><input class="finput" type="text" name="name" placeholder="Your Name *" required/><input class="finput" type="email" name="email" placeholder="Work Email *" required/></div>
+      <div class="frow"><input class="finput" type="text" name="company" placeholder="Company Name *" required/><input class="finput" type="tel" name="phone" placeholder="Phone Number"/></div>
+      <input class="finput" type="text" name="platform_url" placeholder="Platform URL (e.g. yoursite.com or https://yoursite.com) *" required/>
+      <textarea class="ftextarea" name="message" placeholder="Tell us about your platform &mdash; type, monthly users, specific concerns..."></textarea>
       <button type="submit" class="fsubmit">Submit for Free Audit →</button>
     </form>
   </div>
@@ -779,30 +779,21 @@ async function formSubmit(e) {
   const btn = form.querySelector('.fsubmit');
   btn.textContent = 'Sending...';
   btn.disabled = true;
-  const data = new FormData(form);
   try {
+    // Use FormData directly — most reliable with Formspree
+    const data = new FormData(form);
     const res = await fetch('https://formspree.io/f/xreorvad', {
       method: 'POST',
-      body: JSON.stringify({
-        name: form.querySelectorAll('input[type=text]')[0].value,
-        _replyto: form.querySelector('input[type=email]').value,
-        company: form.querySelectorAll('input[type=text]')[1].value,
-        phone: form.querySelector('input[type=tel]') ? form.querySelector('input[type=tel]').value : '',
-        url: form.querySelector('input[type=url]').value,
-        message: form.querySelector('textarea').value
-      }),
-      headers: {'Accept': 'application/json', 'Content-Type': 'application/json'}
+      body: data,
+      headers: {'Accept': 'application/json'}
     });
+    const json = await res.json();
     if (res.ok) {
       btn.textContent = 'Received! We will be in touch within 24 hours.';
       btn.style.background = '#15803d';
       form.reset();
     } else {
-      res.json().then(d => {
-        btn.textContent = 'Error: ' + (d.error||'Submission failed') + ' - email dp@darkpatternsolution.in';
-      }).catch(() => {
-        btn.textContent = 'Error - please email dp@darkpatternsolution.in';
-      });
+      btn.textContent = 'Error: ' + (json.error || 'Please email dp@darkpatternsolution.in');
       btn.style.background = '#dc2626';
       btn.disabled = false;
     }
